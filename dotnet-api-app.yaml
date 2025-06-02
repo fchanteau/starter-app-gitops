@@ -14,7 +14,7 @@ spec:
         image:
           repository: fchanteau95/starter-app
           tag: latest
-        replicaCount: 5
+        replicaCount: 1
   destination:
     server: https://kubernetes.default.svc
     namespace: default
