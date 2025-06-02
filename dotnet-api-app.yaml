@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ton-org/ton-repo
+    repoURL: https://github.com/fchanteau/starter-app-gitops
     targetRevision: HEAD
     path: dotnet-api-chart # <- dossier du chart Helm
     helm:
@@ -14,6 +14,7 @@ spec:
         image:
           repository: fchanteau95/starter-app
           tag: latest
+        replicaCount: 5
   destination:
     server: https://kubernetes.default.svc
     namespace: default
