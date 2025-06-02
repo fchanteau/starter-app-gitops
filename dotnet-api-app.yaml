@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dotnet-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ton-org/ton-repo
+    targetRevision: HEAD
+    path: dotnet-api-chart # <- dossier du chart Helm
+    helm:
+      values: |
+        image:
+          repository: fchanteau95/starter-app
+          tag: latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {} # ou supprime si tu veux du sync manuel
