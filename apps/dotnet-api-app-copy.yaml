@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dotnet-api-dev-copy
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/fchanteau/starter-app-gitops
+    targetRevision: HEAD
+    path: dotnet-api-chart # <- dossier du chart Helm
+    helm:
+      values: |
+        image:
+          repository: fchanteau95/starter-app
+          tag: latest
+        replicaCount: 3
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true # Supprime les ressources supprimées du Git
+      selfHeal: true # Corrige automatiquement les dérives
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
