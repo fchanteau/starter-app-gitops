@@ -1,0 +1,4 @@
+image:
+  repository: fchanteau95/starter-app
+  tag: latest
+replicaCount: 1
