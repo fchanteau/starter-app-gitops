@@ -11,7 +11,7 @@ spec:
     path: dotnet-api-chart # <- dossier du chart Helm
     helm:
       valueFiles:
-        - app-1/devci/values.yaml # Fichier de valeurs pour le chart Helm
+        - ../app-1/devci/values.yaml # Fichier de valeurs pour le chart Helm
   destination:
     server: https://kubernetes.default.svc
     namespace: default
