@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: dotnet-api-devci
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -12,6 +14,40 @@ spec:
     helm:
       valueFiles:
         - ../app-1/devci/values.yaml # Fichier de valeurs pour le chart Helm
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true # Supprime les ressources supprimées du Git
+      selfHeal: true # Corrige automatiquement les dérives
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dotnet-api-uatrc
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/fchanteau/starter-app-gitops
+    targetRevision: HEAD
+    path: dotnet-api-chart # <- dossier du chart Helm
+    helm:
+      valueFiles:
+        - ../app-1/uatrc/values.yaml # Fichier de valeurs pour le chart Helm
   destination:
     server: https://kubernetes.default.svc
     namespace: default

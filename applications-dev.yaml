@@ -25,6 +25,8 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
       - Delete=true
+      # Add this option to handle Application resource deletion
+      - ApplyOutOfSyncOnly=true
     retry:
       limit: 5
       backoff:
