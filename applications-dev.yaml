@@ -5,6 +5,8 @@ metadata:
   namespace: argocd
   labels:
     app: applications-dev
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -22,6 +24,7 @@ spec:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
       - PruneLast=true
+      - Delete=true
     retry:
       limit: 5
       backoff:
