@@ -1,4 +1,4 @@
 image:
   repository: fchanteau95/starter-app
-  tag: latest
+  tag: main.1d6be3f
 replicaCount: 2
