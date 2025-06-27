@@ -6,12 +6,13 @@ replicaCount: 1
 ingress:
   enabled: true
   className: ""
-  annotations: {}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   hosts:
     - host: ""
       paths:
-        - path: /app1
-          pathType: Prefix
+        - path: /app1(/|$)(.*)
+          pathType: ImplementationSpecific
   tls: []
 
 service:
