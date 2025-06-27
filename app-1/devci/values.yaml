@@ -2,7 +2,7 @@ image:
   repository: fchanteau95/starter-app
   tag: latest
 replicaCount: 1
-
+# do this command to access via browser : minikube service -n ingress-nginx ingress-nginx-controller --url
 ingress:
   enabled: true
   className: ""
