@@ -5,12 +5,14 @@ replicaCount: 1
 
 ingress:
   enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   className: ""
   annotations: {}
   hosts:
     - host: my-api.local
       paths:
-        - path: /
+        - path: /app1
           pathType: Prefix
   tls: []
 
