@@ -11,7 +11,7 @@ ingress:
   hosts:
     - host: ""
       paths:
-         - path: /app1(/|$)(.*)
+        - path: /app1(/|$)(.*)
           pathType: ImplementationSpecific
   tls: []
 
