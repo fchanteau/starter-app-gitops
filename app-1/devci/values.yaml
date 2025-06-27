@@ -10,8 +10,7 @@ ingress:
   className: ""
   annotations: {}
   hosts:
-    - host: my-api.local
-      paths:
+    - paths:
         - path: /app1
           pathType: Prefix
   tls: []
