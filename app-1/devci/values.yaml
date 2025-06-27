@@ -7,16 +7,16 @@ ingress:
   enabled: true
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-  className: ""
-  annotations: {}
+  className: "nginx"
   hosts:
-    - paths:
+    - host: ""
+      paths:
         - path: /app1
           pathType: Prefix
   tls: []
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
 
 containerPort: 8080
