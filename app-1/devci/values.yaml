@@ -7,11 +7,11 @@ ingress:
   enabled: true
   className: ""
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
     - host: ""
       paths:
-        - path: /app1/*
+        - path: /app1
           pathType: Prefix
   tls: []
 
