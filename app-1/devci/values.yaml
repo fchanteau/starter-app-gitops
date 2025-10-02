@@ -27,14 +27,4 @@ custom:
 
 appsettings:
   content: |
-    {
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft.AspNetCore": "Warning"
-        }
-      },
-      "ConfigSection": {
-        "Value": "I am in Development from Helm configuration"
-      }
-    }
+    {{ tpl (.Files.Get (printf "%s/%s/appsettings.json" .Values.custom.applicationName .Values.custom.env)) . | nindent 4 }}

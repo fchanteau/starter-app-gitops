@@ -5,4 +5,4 @@ metadata:
   labels: {{- include "dotnet-api-chart.labels" . | nindent 4 }}
 data:
   appsettings.json: |
-{{- .Values.appsettings.content | nindent 4 }}
+{{ tpl .Values.appsettings.content . | nindent 4 }}
