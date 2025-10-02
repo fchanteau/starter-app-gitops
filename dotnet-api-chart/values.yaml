@@ -110,15 +110,15 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-- name: config-volume
-  configMap:
-    name: {{ include "dotnet-api-chart.fullname" . }}
-    defaultMode: 0777
+volumes:
+  # - name: foo
+  #   secret:
+  #     secretName: mysecret
+  #     optional: false
+  - name: config-volume
+    configMap:
+      name: {{ include "dotnet-api-chart.fullname" . }}
+      defaultMode: 0777
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
