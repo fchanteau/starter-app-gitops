@@ -127,3 +127,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+custom:
+  env: ""
+  applicationName: ""
