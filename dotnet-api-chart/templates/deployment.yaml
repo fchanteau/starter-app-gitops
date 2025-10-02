@@ -46,14 +46,21 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{tpl (toYaml .) | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+            {{- with .Values.volumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+              - name: config-volume
+                mountPath: /app/appsettings.json
+                subPath: appsettings.json
       volumes:
-        {{tpl (toYaml .) | nindent 8 }}
-      {{- end }}
+        {{- with .Values.volumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+          - name: config-volume
+            configMap:
+              name: config-{{ .Values.custom.applicationName }}-{{ .Values.custom.env }}
+              defaultMode: 0777
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

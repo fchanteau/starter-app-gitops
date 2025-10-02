@@ -111,23 +111,18 @@ autoscaling:
 
 # Additional volumes on the output Deployment definition.
 volumes:
+  []
   # - name: foo
   #   secret:
   #     secretName: mysecret
   #     optional: false
-  - name: config-volume
-    configMap:
-      name: config-{{ .Values.custom.applicationName }}-{{ .Values.custom.env }}
-      defaultMode: 0777
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
+  []
   # - name: foo
   #   mountPath: "/etc/foo"
   #   readOnly: true
-  - name: config-volume
-    mountPath: /app/appsettings.json
-    subPath: appsettings.json
 
 nodeSelector: {}
 
