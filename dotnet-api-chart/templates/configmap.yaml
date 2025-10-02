@@ -6,5 +6,5 @@ metadata:
     {{- include "dotnet-api-chart.labels" . | nindent 4 }}
 data:
   appsettings.json: |
-    {{ tpl (.Files.Get (printf "apps/%s/%s/appsettings.json" .Values.custom.applicationName .Values.custom.env)) . | nindent 4 }}
+    {{ tpl (.Files.Get (printf "%s/%s/appsettings.json" .Values.custom.applicationName .Values.custom.env)) . | nindent 4 }}
   {{- end }}
