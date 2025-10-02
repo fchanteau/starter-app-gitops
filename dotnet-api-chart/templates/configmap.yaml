@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "config-{{ .Values.starterapp.applicationName }}-{{ .Values.starterapp.env }}"
+  name: "config-{{ .Values.custom.applicationName }}-{{ .Values.custom.env }}"
   labels: {{- include "dotnet-api-chart.labels" . | nindent 4 }}
 data:
   appsettings.json: |

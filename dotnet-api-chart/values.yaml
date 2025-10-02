@@ -117,7 +117,7 @@ volumes:
   #     optional: false
   - name: config-volume
     configMap:
-      name: config-{{ .Values.starterapp.applicationName }}-{{ .Values.starterapp.env }}
+      name: config-{{ .Values.custom.applicationName }}-{{ .Values.custom.env }}
       defaultMode: 0777
 
 # Additional volumeMounts on the output Deployment definition.
