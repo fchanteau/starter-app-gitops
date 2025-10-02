@@ -1,6 +1,6 @@
 image:
   repository: fchanteau95/starter-app
-  tag: feat-config.4048dc9
+  tag: feat-config.3044e04
 replicaCount: 1
 # do this command to access via browser : minikube service -n ingress-nginx ingress-nginx-controller --url
 ingress:
