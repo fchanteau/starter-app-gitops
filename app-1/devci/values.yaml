@@ -27,14 +27,14 @@ custom:
 
 appsettings:
   content: |
-  {
-    "Logging": {
-      "LogLevel": {
-        "Default": "Information",
-        "Microsoft.AspNetCore": "Warning"
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "ConfigSection": {
+        "Value": "I am in Development from Helm configuration"
       }
-    },
-    "ConfigSection": {
-      "Value": "I am in Development from Helm configuration"
     }
-  }
