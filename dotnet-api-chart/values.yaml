@@ -115,12 +115,19 @@ volumes: []
 #   secret:
 #     secretName: mysecret
 #     optional: false
+- name: config-volume
+  configMap:
+    name: {{ include "dotnet-api-chart.fullname" . }}
+    defaultMode: 0777
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  # - name: foo
+  #   mountPath: "/etc/foo"
+  #   readOnly: true
+  - name: config-volume
+    mountPath: /app/appsettings.json
+    subPath: appsettings.json
 
 nodeSelector: {}
 
