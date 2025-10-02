@@ -117,7 +117,7 @@ volumes:
   #     optional: false
   - name: config-volume
     configMap:
-      name: {{ include "dotnet-api-chart.fullname" . }}
+      name: config-{{ .Values.starterapp.applicationName }}-{{ .Values.starterapp.env }}
       defaultMode: 0777
 
 # Additional volumeMounts on the output Deployment definition.
