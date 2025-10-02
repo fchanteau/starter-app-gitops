@@ -22,5 +22,5 @@ service:
 containerPort: 8080
 
 custom:
-  env: devci
   applicationName: app-1
+  env: devci

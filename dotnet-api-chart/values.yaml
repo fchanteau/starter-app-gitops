@@ -129,5 +129,5 @@ tolerations: []
 affinity: {}
 
 custom:
-  env: ""
-  applicationName: ""
+  env: "default"
+  applicationName: "default"
