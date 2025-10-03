@@ -13,13 +13,6 @@ ingress:
       paths:
         - path: /app1(/|$)(.*)
           pathType: ImplementationSpecific
-  tls: []
-
-service:
-  type: ClusterIP
-  port: 80
-
-containerPort: 8080
 
 custom:
   applicationName: app-1
