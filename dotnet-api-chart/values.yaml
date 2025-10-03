@@ -130,6 +130,8 @@ tolerations: []
 
 affinity: {}
 
+revisionHistoryLimit: 2
+
 custom:
   env: "default"
   applicationName: "default"
